@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>HTML to Image Generator</title>
+  <link rel='stylesheet' href='./assets/css/style.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-css.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.min.js'></script>
+</head>
+
+<body>
+  <div class='form'>
+    <div class='tab-content'>
+      <div id='signup'>
+        <h1>Create Image From HTML</h1>
+        <div>
+          <div class='field-wrap'>
+            <label>Image Ratio<span class='req'>*</span></label>
+            <select name='ratio' required='required'>
+              <option value=''>Select Ratio</option>
+              <option value='100%'>1:1</option>
+              <option value='75%'>4:3</option>
+              <option selected value='66.67%'>3:2</option>
+              <option value='56.25%'>16:9</option>
+            </select>
+          </div>
+          <div class='field-wrap'>
+            <label>CSS<span class='req'>*</span></label>
+            <textarea name='css' id='css' required rows='10' type='text'></textarea>
+          </div>
+          <div class='field-wrap'>
+            <label>HTML<span class='req'>*</span>
+            </label>
+            <textarea name='html' id='html' rows='10' required type='text'></textarea>
+          </div>
+          <button class='button button-block' id='createImage'>Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='isTemplate'>
+  </div>
+  <script src='./assets/js/html2canvas.min.js'></script>
+  <script src='./assets/js/main.js'></script>
+</body>
+
+</html>
