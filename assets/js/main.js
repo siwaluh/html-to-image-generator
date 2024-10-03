@@ -4,6 +4,8 @@
     css = a.getElementById('css'),
     html = a.getElementById('html'),
     button = a.getElementById('createImage'),
+    img = a.querySelector('[name="image-0"]'),
+    inp = a.querySelector('[name=image-url]'),
     isShadow = isTemplate.attachShadow({
       mode: 'open'
     }),
@@ -41,6 +43,18 @@
       type == 'change' && item.dispatchEvent(new Event(type));
     })
   }
+
+  typeof FileReader == 'function' && inp && img && (img.addEventListener('change', () => {
+    let reader = new FileReader(),
+      files = img.files[0];
+    reader.onloadend = () => {
+      inp.value = reader.result;
+    }
+
+    if (files)
+      reader.readAsDataURL(files);
+    else inp.value = '';
+  }), inp.value = '', img.value = '');
 
   button && button.addEventListener('click', () => {
     button.innerText = 'Loading...'
